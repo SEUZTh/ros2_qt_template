@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(ros2_qt_demo)
+project(ros2_qt_template)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -17,7 +17,10 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(ament_cmake REQUIRED)
+# 添加需要用到的 ROS2 包
 find_package(rclcpp REQUIRED)
+# find_package(sensor_msgs REQUIRED)
+# find_package(cv_bridge REQUIRED)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 # Note that ament_target_dependencies() in algo cannot export Boost::thread to downstream. As a result, qt_example_node, as a downstream of libalgo.so, needs to explicitly find_package() for Boost again so that qt_example_node is able to link to Boost::thread.
 find_package(Boost 1.71.0 REQUIRED COMPONENTS thread)
@@ -43,7 +46,7 @@ add_executable(${PROJECT_NAME}
         ${PRO_FORM_DIR}
 )
 # Note that ament_target_dependencies() in algo cannot export Boost::thread to downstream. As a result, qt_example_node, as a downstream of libalgo.so, needs to explicitly ament_target_dependencies() for Boost again so that qt_example_node is able to link to Boost::thread.
-ament_target_dependencies(${PROJECT_NAME} rclcpp  Boost)
+ament_target_dependencies(${PROJECT_NAME} rclcpp  Boost) # 添加依赖的 ROS2 库
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Widgets
