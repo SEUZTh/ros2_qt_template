@@ -1,16 +1,23 @@
-# ros2_qt_demo
-a demo for ros2 and qt
 
-test in ros2 foxy
-# how to build
-```shell
-colcon build
-```
-# how to use
-make sure you are sourced your workspace and then run in terminal:
-```shell
-ros2 run ros2_qt_demo ros2_qt_demo
-```
-# preview
+- 如果是使用 `ros2_qt_template` 这个功能包模板进行二次开发，可以克隆 v1 分支：
+    ```shell
+    git clone --branch v1 https://github.com/SEUZTh/ros2_qt_template.git
+    ```
+- 如果是学习该教程代码，可以克隆 `master` 分支：
+    ```shell
+    git clone https://github.com/SEUZTh/ros2_qt_template.git
+    ```
 
-[![74-D792-AC-191-C-4532-9973-B683-E1-E8-C1-BB.png](https://i.postimg.cc/C5vqK0Yk/74-D792-AC-191-C-4532-9973-B683-E1-E8-C1-BB.png)](https://postimg.cc/7J26Bp5Z)
+- 使用 QT 编译，然后执行功能包：
+  - ros2_qt_templete:
+    ```shell
+    source install/setup.sh
+    ros2 run ros2_qt_template ros2_qt_template
+    ```
+    ![](docs/images/ros2_qt_template.png)
+  - `ros2_qt_rviz2`:
+    ```shell
+    source install/setup.sh
+    ros2 run ros2_qt_rviz2 ros2_qt_rviz2
+    ```
+    ![](docs/images/ros2_qt_rviz2.png)
