@@ -9,15 +9,23 @@
     ```
 
 - 使用 QT 编译，然后执行功能包：
-  - ros2_qt_templete:
-    ```shell
-    source install/setup.sh
-    ros2 run ros2_qt_template ros2_qt_template
-    ```
-    ![](docs/images/ros2_qt_template.png)
-  - `ros2_qt_rviz2`:
-    ```shell
-    source install/setup.sh
-    ros2 run ros2_qt_rviz2 ros2_qt_rviz2
-    ```
-    ![](docs/images/ros2_qt_rviz2.png)
+
+# ROS2 QT 教程
+
+## 教程一：ros2_qt_templete
+```shell
+source install/setup.sh
+ros2 run ros2_qt_template ros2_qt_template
+```
+![](docs/images/ros2_qt_template.png)
+
+## 教程二：ros2_qt_rviz2
+```shell
+source install/setup.sh
+ros2 run ros2_qt_rviz2 ros2_qt_rviz2
+```
+![](docs/images/ros2_qt_rviz2.png)
+
+# PCL QT 教程
+## 教程一：ros2_qt_vtk
+为了在使用 ROS2 的同时，显示单帧点云，调用 PCL 点云库进行一些处理，这里介绍如何在 QT 中显示点云，直接在 ros2_qt_rviz2 的基础上进行修改。
