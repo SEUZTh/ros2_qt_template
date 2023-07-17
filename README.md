@@ -29,3 +29,8 @@ ros2 run ros2_qt_rviz2 ros2_qt_rviz2
 # PCL QT 教程
 ## 教程一：ros2_qt_vtk
 为了在使用 ROS2 的同时，显示单帧点云，调用 PCL 点云库进行一些处理，这里介绍如何在 QT 中显示点云，直接在 ros2_qt_rviz2 的基础上进行修改。
+```shell
+source install/setup.sh
+ros2 run ros2_qt_vtk ros2_qt_vtk
+```
+![](docs/images/ros2_qt_vtk.png)

@@ -24,7 +24,20 @@ find_package(rclcpp REQUIRED)
 find_package(rviz_common REQUIRED)
 find_package(rviz_default_plugins REQUIRED)
 find_package(rviz_rendering REQUIRED)
-find_package(Qt5 COMPONENTS Widgets REQUIRED)
+find_package(Qt5 COMPONENTS OpenGL Widgets REQUIRED)
+find_package(VTK 7.1 REQUIRED)
+# Import PCL
+find_package(PCL 1.13.1 REQUIRED)
+if(PCL_FOUND)
+    message( STATUS "PCL_FOUND: " ${PCL_FOUND})
+    message( STATUS "PCL_INCLUDE_DIRS: " ${PCL_INCLUDE_DIRS})
+    message( STATUS "PCL_LIBRARY_DIRS: " ${PCL_LIBRARY_DIRS})
+    include_directories(${PCL_INCLUDE_DIRS})
+    link_directories(${PCL_LIBRARY_DIRS})
+    add_definitions(${PCL_DEFINITIONS})
+else()
+    message(err: PCL not found)
+endif()
 # Note that ament_target_dependencies() in algo cannot export Boost::thread to downstream. As a result, qt_example_node, as a downstream of libalgo.so, needs to explicitly find_package() for Boost again so that qt_example_node is able to link to Boost::thread.
 find_package(Boost 1.71.0 REQUIRED COMPONENTS thread)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -55,7 +68,9 @@ ament_target_dependencies(
     rviz_common
     rviz_default_plugins
     rviz_rendering
-    Boost) # 添加依赖的 ROS2 库
+    Boost
+    VTK
+    PCL) # 添加依赖的 ROS2 库
 
 ament_export_dependencies(
   rclcpp
@@ -65,6 +80,8 @@ ament_export_dependencies(
 
 target_link_libraries(${PROJECT_NAME}
         Qt5::Widgets
+        ${VTK_LIBRARIES}
+        ${PCL_LIBRARIES}
 )
 
 install(TARGETS ${PROJECT_NAME}

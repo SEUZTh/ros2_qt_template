@@ -9,6 +9,7 @@
 #include "rviz_common/ros_integration/ros_node_abstraction.hpp"
 
 #include "lidarView.h"
+#include "pclView.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -26,6 +27,7 @@ private:
     Ui::MainWindow *ui;
     QApplication * _app;
     LidarView *lidarView;
+    PCLView *pclView;
 public slots:
     // void updateTopicInfo(QString);
 };
